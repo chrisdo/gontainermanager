@@ -1,0 +1,24 @@
+{{define "content"}}
+<div class="containers">
+   <table class="table">
+      <thead>
+         <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Names</th>
+            <th scope="col">Image</th>
+            <th scope="col">Status</th>
+         </tr>
+      </thead>
+      <tbody>
+         {{range .Containers}}
+         <tr scope="row">
+            <td><a href="/containers/inspect?cid={{.Id}}">{{.Id}}</a></td>
+            <td>{{.Names}}</td>
+            <td>{{.Image}}</td>
+            <td>{{.Status}}</td>
+         </tr>
+         {{end}}
+      </tbody>
+   </table>
+</div>
+{{end}}

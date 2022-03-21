@@ -1,0 +1,33 @@
+{{define "content"}}
+{{ if ne .Error ""}}
+<div class="Error">
+   {{.Error}}
+</div>
+{{end}}
+{{if eq .Error ""}}
+<div class="container">
+   <h2>Container Details</h2>
+   <dl class="row">
+      <dt class="col-sm-1">Id</dt>
+      <dd class="col-sm-11">{{.Data.Id}}</dd>
+      <dt class="col-sm-1">Name</dt>
+      <dd class="col-sm-11">{{.Data.Names}}</dd>
+      <dt class="col-sm-1">Image</dt>
+      <dd class="col-sm-11">{{.Data.Image}}</dd>
+      <dt class="col-sm-1">Status</dt>
+      <dd class="col-sm-11">{{.Data.Status}}</dd>
+      <dt class="col-sm-1">IP</dt>
+      <dd class="col-sm-11">{{.IP}}</dd>
+      <dt class="col-sm-1">Labels</dt>
+      <dd class="col-sm-11">
+         <dl class="row">
+            {{ range $key, $value := .Labels }}
+            <dt class='col-sm-1'>{{$key}}</dt>
+            <dd class="col-sm-11">{{$value}}</dd>
+            {{end}}
+      </dd>
+   </dl>
+   </dl>
+</div>
+{{end}}
+{{end}}
